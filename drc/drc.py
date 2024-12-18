@@ -116,7 +116,6 @@ def drc(env_fn, actor_critic=core.MLPActorCritic, ac_kwargs=dict(), seed=0,
         gcm_mode = 0, prob = .0, noise_disc = 10, cont_mode = 0, sigma=0.0,
         num_outputs = 0,):
     
-    # mode: 0 - PPO; 1 - SR_W
     # gcm_mode: 0 - no GCM perturbations; 1 - GCM perturbations
     # prob: the probability of the samples to be perturbed of the GCM perturbations
     # noise_disc: the reward discretization number of the GCM perturbations

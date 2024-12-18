@@ -114,8 +114,14 @@ def re(env_fn, actor_critic=core.MLPActorCritic, ac_kwargs=dict(), seed=0,
         steps_per_epoch=4000, epochs=250, gamma=0.99, clip_ratio=0.2, pi_lr=3e-4,
         vf_lr=1e-3, train_pi_iters=80, train_v_iters=80, lam=0.97, max_ep_len=1000,
         target_kl=0.01, logger_kwargs=dict(), save_freq=10,
-        sigma=0.0, mode = 1, mul = 1.0, gcm_mode = 0, cont_mode = 0, prob = 0.0,
-        noise_disc = 10, random_one = 0, MP = 0, range_multiple = 0):
+        gcm_mode = 0, prob = .0, noise_disc = 10, cont_mode = 0, sigma=0.0):
+    
+    # gcm_mode: 0 - no GCM perturbations; 1 - GCM perturbations
+    # prob: the probability of the samples to be perturbed of the GCM perturbations
+    # noise_disc: the reward discretization number of the GCM perturbations
+    # cont_mode: 0 - no continuous perturbations; 1 - Gaussian perturbations;
+    #            2 - uniform perturbations; 3 - reward range uniform perturbations
+    # sigma: sigma/omega of the continuous perturbations
     
     """
     Proximal Policy Optimization (by clipping), 
@@ -558,16 +564,11 @@ if __name__ == '__main__':
     parser.add_argument('--steps', type=int, default=4000)
     parser.add_argument('--epochs', type=int, default=50)
     parser.add_argument('--exp_name', type=str, default='ppo')
-    parser.add_argument('--sigma', type=float, default=0.0)
-    parser.add_argument('--mode', type=int, default=1)
-    parser.add_argument('--mul', type=float, default=1.0)
     parser.add_argument('--gcm_mode', type=int, default=0)
-    parser.add_argument('--cont_mode', type=int, default=0)
-    parser.add_argument('--prob', type=float, default=0.0)
+    parser.add_argument('--prob', type=float, default=.0)
     parser.add_argument('--noise_disc', type=int, default=10)
-    parser.add_argument('--random_one', type=int, default=0)
-    parser.add_argument('--MP', type=int, default=0)
-    parser.add_argument('--range_multiple', type=int, default=0)
+    parser.add_argument('--cont_mode', type=int, default=0)
+    parser.add_argument('--sigma', type=float, default=0.0)
     args = parser.parse_args()
 
     mpi_fork(args.cpu)  # run parallel code with mpi
