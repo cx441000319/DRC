@@ -6,4 +6,4 @@ Please first install Spinning Up and MuJoCo following the instructions in this l
 
 Then paste the folders in **alg** to **spinup/algos/pytorch/** of Spinning Up, and paste the files in **script** to **spinup/** of Spinning Up.
 
-**drc_sh.py** is to generate prompts, stored in **drc.sh**, for conducting experiments. Feel free to run the prompts and modify **drc_sh.py** as you want.
+**drc_sh.py** is to generate prompts for conducting experiments, stored in **drc.sh**. Feel free to run the prompts and modify **drc_sh.py**.
