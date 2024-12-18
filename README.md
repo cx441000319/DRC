@@ -4,6 +4,6 @@ This project includes the source codes to reproduce the results in The Distribut
 
 Please first install Spinning Up and MuJoCo following the instructions in this link (https://spinningup.openai.com/en/latest/user/installation.html).
 
-Then paste the folders in **alg** to **spinup/algos/pytorch/** of Spinning Up, and paste the files in **script** to **spinup/** of Spinning Up.
+Then paste the folders in **alg** to **spinup/algos/pytorch/**, and paste the files in **script** to **spinup/**.
 
 **drc_sh.py** is to generate prompts for conducting experiments, stored in **drc.sh**. Feel free to run the prompts and modify **drc_sh.py**.
